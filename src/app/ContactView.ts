@@ -10,15 +10,15 @@ import Contact from './Contact';
 <div class="media-heading">
   <h3>
     {{contact.name}}
-    <!--small>
-      <a href="#contacts/edit/<%- id %>"><span class="glyphicon glyphicon-pencil"></span></a>
-      <a href="#contacts/delete/<%- id %>" class="delete-contract">
+    <small>
+      <a href="#contacts/edit/%id%"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a href="#contacts/delete/%id%" class="delete-contract">
         <span class="glyphicon glyphicon-trash"></span>
       </a>
-    </small-->
+    </small>
   </h3>
 </div>
-<div class="media-body">
+<div class="media-body contact-details">
   <dl>
     <dt>Phone Number:</dt>
     <dd>{{contact.tel}}</dd>
@@ -27,7 +27,13 @@ import Contact from './Contact';
   </dl>
 </div>
 <hr>
-    `
+    `,
+    styles: [`
+.media-body.contact-details {
+  display: block;
+  width: auto;
+}
+    `]
 })
 export default class ContactView {
   @Input() contact: Contact;
