@@ -1,5 +1,6 @@
 import {Component, Input, CORE_DIRECTIVES} from 'angular2/angular2';
 import ContactView from './ContactView';
+import ContactsService from './ContactsService';
 import Contact from './Contact';
 
 @Component({
@@ -18,5 +19,11 @@ import Contact from './Contact';
     `
 })
 export default class ContactList {
-  @Input() contacts:Contact[];
+  contacts:Contact[];
+  constructor(contactsService:ContactsService) {
+    contactsService.getContacts()
+      .then((result) => {
+        this.contacts = result;
+      });
+  }
 }

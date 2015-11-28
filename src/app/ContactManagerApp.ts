@@ -1,11 +1,26 @@
-import {Component} from 'angular2/angular2';
+import {Component, provide} from 'angular2/angular2';
+import {
+  RouteConfig,
+  ROUTER_DIRECTIVES,
+  ROUTER_PROVIDERS,
+  LocationStrategy,
+  HashLocationStrategy
+} from 'angular2/router';
+
 import Contact from './Contact';
 import ContactList from './ContactList';
 import ContactsService from './ContactsService'
 
+import {Routes, APP_ROUTES} from "./routeConfig"
+
+@RouteConfig(APP_ROUTES)
 @Component({
     selector: 'contactManagerApp',
-    directives: [ContactList],
+    directives: [ContactList, ROUTER_DIRECTIVES],
+    providers: [
+      ROUTER_PROVIDERS,
+      provide(LocationStrategy, {useClass: HashLocationStrategy})
+    ],
     template: `
 <header class="cm-header">
 	<div class="container">
@@ -16,7 +31,7 @@ import ContactsService from './ContactsService'
 <div class="container">
 	<div class="row">
 	<div class="col-xs-12 main-container">
-    <contactList [contacts]="contacts"></contactList>
+    <router-outlet></router-outlet>
 	</div>
 	</div>
 </div>
@@ -49,11 +64,6 @@ import ContactsService from './ContactsService'
     `]
 })
 export default class ContactManagerApp {
-  contacts:Contact[];
-  constructor(contactsService:ContactsService) {
-    contactsService.getContacts()
-      .then((result) => {
-        this.contacts = result;
-      });
-  }
+  routes = Routes;
+  constructor() {}
 }
