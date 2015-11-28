@@ -5,7 +5,7 @@ import Contact from './Contact';
     selector: 'contactView',
     template: `
 <div class="thumbnail">
-  <img class="media-object" src="img/faces/{{contact.id}}.jpg">
+  <img class="media-object" src="img/faces/{{contact.avatar}}">
 </div>
 <div class="media-heading">
   <h3>

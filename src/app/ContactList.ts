@@ -18,7 +18,7 @@ import Contact from './Contact';
     `
 })
 export default class ContactList {
-  contacts:Array<Contact> = [
+  contacts:Contact[] = [
     {
       id: 1,
       name : 'Terrence S. Hatfield',
@@ -55,5 +55,5 @@ export default class ContactList {
       tel: '803-557-9815',
       email: 'RodolfoPRobinett@jourrapide.com'
     }
-  ]
+  ].map(Contact.fromObject);
 }
