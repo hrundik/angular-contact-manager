@@ -10,12 +10,12 @@ import Contact from './Contact';
 <div class="media-heading">
   <h3>
     {{contact.name}}
-    <small>
+    <!--small>
       <a href="#contacts/edit/%id%"><span class="glyphicon glyphicon-pencil"></span></a>
       <a href="#contacts/delete/%id%" class="delete-contract">
         <span class="glyphicon glyphicon-trash"></span>
       </a>
-    </small>
+    </small-->
   </h3>
 </div>
 <div class="media-body contact-details">
