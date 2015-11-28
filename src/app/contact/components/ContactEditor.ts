@@ -1,10 +1,10 @@
 import {Component, Input, FORM_DIRECTIVES} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES, Router, RouteParams} from 'angular2/router';
 
-import SimpleButton from './SimpleButton';
+import SimpleButton from './../../shared/components/SimpleButton';
 
-import Contact from './Contact';
-import ContactsService from './ContactsService';
+import Contact from '../Contact';
+import ContactsService from '../ContactsService';
 
 @Component({
     selector: 'contactEditor',
@@ -72,7 +72,7 @@ export default class ContactEditor {
     }
 
     result.then(() => {
-      this.router.navigate(['/Contacts']);  
+      this.router.navigate(['/Contacts']);
     });
   }
 

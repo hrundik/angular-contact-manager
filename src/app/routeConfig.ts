@@ -1,6 +1,6 @@
 import {RouteDefinition} from 'angular2/router'
-import ContactList from './ContactList';
-import ContactEditor from './ContactEditor'
+import ContactList from './contact/components/ContactList';
+import ContactEditor from './contact/components/ContactEditor';
 
 export const Routes = {
   contacts: {

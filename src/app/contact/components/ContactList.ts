@@ -1,11 +1,11 @@
 import {Component} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import SimpleButton from './SimpleButton';
+import SimpleButton from './../../shared/components/SimpleButton';
 
 import ContactView from './ContactView';
-import ContactsService from './ContactsService';
-import Contact from './Contact';
+import ContactsService from './../ContactsService';
+import Contact from './../Contact';
 
 @Component({
     selector: 'contactList',

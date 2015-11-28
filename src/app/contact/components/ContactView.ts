@@ -1,8 +1,8 @@
 import {Component, Input} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import Contact from './Contact';
-import ContactsService from './ContactsService';
+import Contact from '../Contact';
+import ContactsService from '../ContactsService';
 
 @Component({
     selector: 'contactView',
@@ -16,7 +16,7 @@ import ContactsService from './ContactsService';
     {{contact.name}}
     <small>
       <a [router-link]="['/EditContact', {id: contact.id}]"><span class="glyphicon glyphicon-pencil"></span></a>
-      <a (click)="deleteContact(contact)">
+      <a href="#" (click)="deleteContact(contact)">
         <span class="glyphicon glyphicon-trash"></span>
       </a>
     </small>

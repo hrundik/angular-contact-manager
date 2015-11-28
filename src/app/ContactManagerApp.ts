@@ -7,9 +7,9 @@ import {
   HashLocationStrategy
 } from 'angular2/router';
 
-import Contact from './Contact';
-import ContactList from './ContactList';
-import ContactsService from './ContactsService'
+import Contact from './contact/Contact';
+import ContactList from './contact/components/ContactList';
+import ContactsService from './contact/ContactsService';
 
 import {Routes, APP_ROUTES} from "./routeConfig"
 
