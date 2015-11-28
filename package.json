@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Contact Manager with Angular2",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
   },
   "repository": {
     "type": "git",
