@@ -1,12 +1,14 @@
 import {Component, Input, FORM_DIRECTIVES} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES, Router, RouteParams} from 'angular2/router';
 
+import SimpleButton from './SimpleButton';
+
 import Contact from './Contact';
 import ContactsService from './ContactsService';
 
 @Component({
     selector: 'contactEditor',
-    directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES],
+    directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES, SimpleButton],
     template: `
 <div *ng-if="contact">
 <h2 class="page-header text-center">{{isNew ? 'Create' : 'Edit'}} Contact</h2>
@@ -35,10 +37,10 @@ import ContactsService from './ContactsService';
   </div>
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-3">
-      <button type="submit" class="btn btn-outline btn-lg btn-block">Submit</button>
+      <simpleButton type="submit" label="Submit" class="btn-block">
     </div>
     <div class="col-sm-3">
-      <a [router-link]="['/Contacts']" class="btn btn-outline btn-lg btn-block">Cancel</a>
+      <simpleButton [router-link]="['/Contacts']" label="Cancel" class="btn-block">
     </div>
   </div>
 </form>
