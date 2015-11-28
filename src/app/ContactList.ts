@@ -1,4 +1,5 @@
 import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
+import Contact from './Contact';
 
 @Component({
     selector: 'contactList',
@@ -15,7 +16,7 @@ import {Component, CORE_DIRECTIVES} from 'angular2/angular2';
     `
 })
 export default class ContactList {
-  contacts = [
+  contacts:Array<Contact> = [
     {
       id: 1,
       name : 'Terrence S. Hatfield',
