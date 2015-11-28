@@ -1,9 +1,12 @@
 import {Component, Input} from 'angular2/angular2';
+import {ROUTER_DIRECTIVES} from 'angular2/router';
+
 import Contact from './Contact';
 import ContactsService from './ContactsService';
 
 @Component({
     selector: 'contactView',
+    directives: [ROUTER_DIRECTIVES],
     template: `
 <div class="thumbnail">
   <img class="media-object" src="img/faces/{{contact.avatar}}">
@@ -12,8 +15,8 @@ import ContactsService from './ContactsService';
   <h3>
     {{contact.name}}
     <small>
-      <!--a href="#contacts/edit/%id%"><span class="glyphicon glyphicon-pencil"></span></a-->
-      <a href="#" (click)="deleteContact(contact)">
+      <a [router-link]="['/EditContact', {id: contact.id}]"><span class="glyphicon glyphicon-pencil"></span></a>
+      <a (click)="deleteContact(contact)">
         <span class="glyphicon glyphicon-trash"></span>
       </a>
     </small>

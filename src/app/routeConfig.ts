@@ -9,8 +9,13 @@ export const Routes = {
     component: ContactList
   },
   newContact: {
-    path: 'contacts/new/',
+    path: '/new/',
     as: 'AddContact',
+    component: ContactEditor
+  },
+  editContact: {
+    path: '/edit/:id',
+    as: 'EditContact',
     component: ContactEditor
   }
 };

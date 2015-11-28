@@ -6,9 +6,9 @@ import ContactsService from './ContactsService';
 
 @Component({
     selector: 'contactEditor',
-    directives: [FORM_DIRECTIVES],
     directives: [FORM_DIRECTIVES, ROUTER_DIRECTIVES],
     template: `
+<div *ng-if="contact">
 <h2 class="page-header text-center">{{isNew ? 'Create' : 'Edit'}} Contact</h2>
 <form role="form" class="form-horizontal contract-form">
   <div class="form-group">
@@ -41,11 +41,25 @@ import ContactsService from './ContactsService';
     </div>
   </div>
 </form>
+</div>
     `
 })
 export default class ContactEditor {
-  contact: Contact = new Contact();
+  contact: Contact;
+
+  constructor(contactsService:ContactsService, params: RouteParams) {
+    let id = parseInt(params.get('id'), 10);
+    if (!id) {
+      this.contact = new Contact();
+    } else {
+      contactsService.getContact(id)
+        .then((contact) => {
+          this.contact = contact.clone();
+        });
+    }
+  }
+
   get isNew() {
-    return !this.contact || !this.contact.id;
+    return !this.contact.id;
   }
 }

@@ -13,4 +13,10 @@ export default class Contact {
   tel: String;
   email: String;
   avatar: String;
+
+  clone() {
+    let contact = new Contact();
+    Object.assign(contact, this);
+    return contact;
+  }
 }

@@ -9,6 +9,15 @@ export default class ContactsService {
     return Promise.resolve(this.contacts);
   }
 
+  public getContact(id:Number):Promise<Contact> {
+    let contact = this.contacts.find((contact) => contact.id == id);
+    if (contact) {
+      return Promise.resolve(contact);
+    } else {
+      return <Promise<any>>Promise.reject("NOT_FOUND");
+    }
+  }
+
   public deleteContact(contact:Contact) {
     let index = this.contacts.indexOf(contact);
     this.contacts.splice(index, 1);
