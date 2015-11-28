@@ -2,10 +2,11 @@ export default class Contact {
   static fromObject(obj) {
     let contact = new Contact();
     Object.assign(contact, obj);
-    if (!contact.avatar) {
-      contact.avatar = `${Math.floor(Math.random() * 15) + 1}.jpg`;
-    }
     return contact;
+  }
+
+  constructor() {
+    this.avatar = `${Math.floor(Math.random() * 15) + 1}.jpg`;
   }
 
   id: Number;

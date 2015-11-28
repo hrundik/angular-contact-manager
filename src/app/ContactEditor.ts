@@ -1,5 +1,5 @@
 import {Component, Input, FORM_DIRECTIVES} from 'angular2/angular2';
-import {ROUTER_DIRECTIVES, RouteParams} from 'angular2/router';
+import {ROUTER_DIRECTIVES, Router, RouteParams} from 'angular2/router';
 
 import Contact from './Contact';
 import ContactsService from './ContactsService';
@@ -10,7 +10,8 @@ import ContactsService from './ContactsService';
     template: `
 <div *ng-if="contact">
 <h2 class="page-header text-center">{{isNew ? 'Create' : 'Edit'}} Contact</h2>
-<form role="form" class="form-horizontal contract-form">
+<form role="form" class="form-horizontal contract-form"
+  (ng-submit)="onSubmit()">
   <div class="form-group">
     <label class="col-sm-4 control-label">Full name:</label>
     <div class="col-sm-6">
@@ -47,7 +48,8 @@ import ContactsService from './ContactsService';
 export default class ContactEditor {
   contact: Contact;
 
-  constructor(contactsService:ContactsService, params: RouteParams) {
+  constructor(private contactsService:ContactsService,
+    private router:Router, params: RouteParams) {
     let id = parseInt(params.get('id'), 10);
     if (!id) {
       this.contact = new Contact();
@@ -57,6 +59,19 @@ export default class ContactEditor {
           this.contact = contact.clone();
         });
     }
+  }
+
+  onSubmit() {
+    let result:Promise<any>;
+    if (this.isNew) {
+      result = this.contactsService.addContact(this.contact);
+    } else {
+      result = this.contactsService.saveContact(this.contact);
+    }
+
+    result.then(() => {
+      this.router.navigate(['/Contacts']);  
+    });
   }
 
   get isNew() {
