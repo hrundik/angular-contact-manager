@@ -1,7 +1,9 @@
 import {Component} from 'angular2/angular2';
+import ContactList from './ContactList';
 
 @Component({
     selector: 'contactManagerApp',
+    directives: [ContactList],
     template: `
 <header class="cm-header">
 	<div class="container">
@@ -12,6 +14,7 @@ import {Component} from 'angular2/angular2';
 <div class="container">
 	<div class="row">
 	<div class="col-xs-12 main-container">
+    <contactList></contactList>
 	</div>
 	</div>
 </div>
@@ -44,5 +47,5 @@ import {Component} from 'angular2/angular2';
     `]
 })
 export default class ContactManagerApp {
-  
+
 }
