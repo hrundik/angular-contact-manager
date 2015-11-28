@@ -19,6 +19,7 @@
   "homepage": "https://github.com/hrundik/angular-contact-manager#readme",
   "dependencies": {
     "angular2": "2.0.0-alpha.46",
+    "bootstrap": "3.3.6",
     "systemjs": "0.19.6"
   },
   "devDependencies": {
