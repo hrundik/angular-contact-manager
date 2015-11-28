@@ -1,5 +1,6 @@
 import {Component, Input} from 'angular2/angular2';
 import Contact from './Contact';
+import ContactsService from './ContactsService';
 
 @Component({
     selector: 'contactView',
@@ -10,12 +11,12 @@ import Contact from './Contact';
 <div class="media-heading">
   <h3>
     {{contact.name}}
-    <!--small>
-      <a href="#contacts/edit/%id%"><span class="glyphicon glyphicon-pencil"></span></a>
-      <a href="#contacts/delete/%id%" class="delete-contract">
+    <small>
+      <!--a href="#contacts/edit/%id%"><span class="glyphicon glyphicon-pencil"></span></a-->
+      <a href="#" (click)="deleteContact(contact)">
         <span class="glyphicon glyphicon-trash"></span>
       </a>
-    </small-->
+    </small>
   </h3>
 </div>
 <div class="media-body contact-details">
@@ -37,4 +38,10 @@ import Contact from './Contact';
 })
 export default class ContactView {
   @Input() contact: Contact;
+
+  constructor(private contactsService:ContactsService) {}
+
+  deleteContact (contact:Contact) {
+    this.contactsService.deleteContact(contact);
+  }
 }

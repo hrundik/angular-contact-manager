@@ -8,4 +8,9 @@ export default class ContactsService {
     // return Promise to be ready for future async
     return Promise.resolve(this.contacts);
   }
+
+  public deleteContact(contact:Contact) {
+    let index = this.contacts.indexOf(contact);
+    this.contacts.splice(index, 1);
+  }
 }
