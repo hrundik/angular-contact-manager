@@ -37,10 +37,10 @@ import ContactsService from '../ContactsService';
   </div>
   <div class="form-group">
     <div class="col-sm-offset-4 col-sm-3">
-      <simpleButton type="submit" label="Submit" class="btn-block">
+      <simpleButton type="submit" class="btn-block">Submit</simpleButton>
     </div>
     <div class="col-sm-3">
-      <simpleButton [router-link]="['/Contacts']" label="Cancel" class="btn-block">
+      <simpleButton [router-link]="['/Contacts']" class="btn-block">Cancel</simpleButton>
     </div>
   </div>
 </form>

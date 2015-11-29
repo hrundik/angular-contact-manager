@@ -29,8 +29,7 @@ import {Routes, APP_ROUTES} from "./routeConfig"
 	<h1>Contact Manager <small>(simple Angular 2 example app)</small></h1>
   <simpleButton class="add-button"
     [router-link]="['/AddContact']"
-    [outline]="false"
-    label="Add Contact">
+    [outline]="false">Add Contact</simpleButton>
 	</div>
 </header>
 <div class="container">

@@ -3,7 +3,8 @@ import {Component, Input} from 'angular2/angular2';
 @Component({
     selector: 'simpleButton',
     template: `
-<button type="{{type}}" class="btn {{outline ? 'btn-outline' : ''}} btn-lg {{class}}">{{label}}</button>
+<button type="{{type}}"
+  class="btn {{outline ? 'btn-outline' : ''}} btn-lg {{class}}"><ng-content></ng-content></button>
     `,
     styles: [`
 button {
@@ -27,6 +28,5 @@ button {
 export default class SimpleButton {
   @Input() type = "button";
   @Input() outline = true;
-  @Input() label;
   @Input() class;
 }
