@@ -50,4 +50,13 @@ describe('ContactsService', () => {
         done();
       })
   });
+
+  it("should fail when asking for unknown contact", (done) => {
+    service.getContact(1000)
+      .then(done.fail)
+      .catch((err) => {
+        expect(err).toEqual(NOT_FOUND);
+        done();
+      });
+  });
 });
