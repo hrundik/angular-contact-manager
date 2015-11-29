@@ -1,8 +1,8 @@
 var gulp = require('gulp');
+var rename = require('gulp-rename');
 var del = require('del');
 var ts = require('gulp-typescript');
 var sourcemaps = require('gulp-sourcemaps');
-var path = require("path");
 var Builder = require('systemjs-builder');
 
 var SYSTEMJS_CONFIG = {
@@ -52,4 +52,24 @@ gulp.task('build-bundle', ['build-ts'], function (cb) {
 		});
 });
 
-gulp.task('default', ['clean', 'build-bundle']);
+gulp.task('build-and-clean-tmp', ['build-bundle'], function () {
+	return del.sync([TARGET_DIR + '/app']);
+});
+
+gulp.task('copy-index', function () {
+	gulp.src('src/index.prod.html')
+	.pipe(rename('index.html'))
+	.pipe(gulp.dest(TARGET_DIR));
+});
+
+gulp.task('copy-css', function () {
+	gulp.src('src/css/*.css').pipe(gulp.dest(TARGET_DIR + "/css"));
+});
+
+gulp.task('copy-assets', function () {
+	gulp.src('src/img/**/*').pipe(gulp.dest(TARGET_DIR + "/img"));
+});
+
+gulp.task('copy-static', ['copy-index', 'copy-css', 'copy-assets']);
+
+gulp.task('default', ['clean', 'build-and-clean-tmp', 'copy-static']);
