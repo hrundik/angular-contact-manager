@@ -1,6 +1,8 @@
 import ContactsService, {NOT_FOUND, NOT_NEW} from './ContactsService';
 import Contact from './Contact';
 
+// ContactsService integration test
+// (in real life the service would access server-side which should be mocked)
 describe('ContactsService', () => {
   let service:ContactsService;
   let newContact:Contact;
@@ -56,6 +58,30 @@ describe('ContactsService', () => {
       .then(done.fail)
       .catch((err) => {
         expect(err).toEqual(NOT_FOUND);
+        done();
+      });
+  });
+
+  it("should save known contact", (done) => {
+    let modifiedContact;
+    service.addContact(newContact)
+      .then(() => {
+        modifiedContact = newContact.clone();
+        modifiedContact.name = "Noname";
+        return service.saveContact(modifiedContact);
+      })
+      .then((contact) => {
+        expect(contact).toEqual(modifiedContact);
+        done();
+      })
+  });
+
+  it("should fail when saving unknown contact", (done) => {
+    newContact.id = 123;
+    service.saveContact(newContact)
+      .then(done.fail)
+      .catch((err) => {
+        expect(err).toBe(NOT_FOUND);
         done();
       });
   });
