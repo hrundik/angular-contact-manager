@@ -15,15 +15,15 @@ import ContactsService from '../ContactsService';
   </div>
 </div>
 <div class="media-heading">
-  <h3>
+  <h3 class="name">
     {{contact.name}}
-    <small>
-      <a [router-link]="['/EditContact', {id: contact.id}]"><span class="glyphicon glyphicon-pencil"></span></a>
-      <a href="#" (click)="deleteContact(contact)">
-        <span class="glyphicon glyphicon-trash"></span>
-      </a>
-    </small>
   </h3>
+  <div class="actions">
+    <a [router-link]="['/EditContact', {id: contact.id}]"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="#" (click)="deleteContact(contact)">
+      <span class="glyphicon glyphicon-trash"></span>
+    </a>
+  </div>
 </div>
 <div class="media-body contact-details">
   <dl>
@@ -56,6 +56,22 @@ import ContactsService from '../ContactsService';
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0px;
+}
+.name {
+  margin-top: 10px;
+}
+.actions {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+}
+.actions .glyphicon {
+  margin-left: 10px;
+}
+a:hover,
+a:focus,
+a.active {
+  border-color: #563d7c;
 }
     `]
 })

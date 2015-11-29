@@ -32,7 +32,7 @@ import {Routes, APP_ROUTES} from "./routeConfig"
     [outline]="false"><span class="short"> + </span><span class="long">Add Contact</span></simpleButton>
 	</div>
 </header>
-<div class="container">
+<div class="container main-container">
 	<div class="row">
 	<div class="col-xs-12 main-container">
     <router-outlet></router-outlet>
@@ -88,6 +88,14 @@ import {Routes, APP_ROUTES} from "./routeConfig"
 @media (min-width: 601px) {
   .short {
     display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-container {
+    width: auto;
+    max-width: 1400px;
+    padding: 20px 50px;
   }
 }
     `]

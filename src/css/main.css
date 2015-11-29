@@ -26,9 +26,3 @@ a:hover,
 a:focus {
   color: #1d1429;
 }
-
-a.thumbnail:hover,
-a.thumbnail:focus,
-a.thumbnail.active {
-  border-color: #563d7c;
-}
