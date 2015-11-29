@@ -90,14 +90,6 @@ import {Routes, APP_ROUTES} from "./routeConfig"
     display: none;
   }
 }
-
-@media (min-width: 1200px) {
-  .main-container {
-    width: auto;
-    max-width: 1400px;
-    padding: 20px 50px;
-  }
-}
     `]
 })
 export default class ContactManagerApp {
