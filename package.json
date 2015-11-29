@@ -4,7 +4,8 @@
   "description": "Contact Manager with Angular2",
   "scripts": {
     "tsc": "tsc -p src -w",
-    "start": "live-server --open=src"
+    "start": "live-server --open=src",
+	"build": "node ./node_modules/gulp/bin/gulp"
   },
   "repository": {
     "type": "git",
