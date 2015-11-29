@@ -18,7 +18,8 @@
 
     Promise.all([
       System.import('app/contact/Contact.spec'),
-      System.import('app/shared/CRUDService.spec')
+      System.import('app/shared/CRUDService.spec'),
+      System.import('app/contact/ContactsService.spec'),
     ]).then(window.onload)
       .catch(console.error.bind(console));
   </script>
