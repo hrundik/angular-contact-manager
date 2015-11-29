@@ -23,7 +23,12 @@
     "systemjs": "0.19.6"
   },
   "devDependencies": {
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-typescript": "^2.9.2",
     "live-server": "^0.8.2",
+    "systemjs-builder": "^0.14.11",
     "typescript": "^1.6.2"
   }
 }
