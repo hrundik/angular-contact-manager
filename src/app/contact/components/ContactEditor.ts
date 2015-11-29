@@ -12,7 +12,7 @@ import ContactsService from '../ContactsService';
     template: `
 <div *ng-if="contact">
 <h2 class="page-header text-center">{{isNew ? 'Create' : 'Edit'}} Contact</h2>
-<form role="form" class="form-horizontal contract-form"
+<form role="form" class="form-horizontal"
   (ng-submit)="onSubmit()">
   <div class="form-group">
     <label class="col-sm-4 control-label">Full name:</label>
@@ -24,14 +24,14 @@ import ContactsService from '../ContactsService';
   <div class="form-group">
     <label class="col-sm-4 control-label">Email address:</label>
     <div class="col-sm-6">
-      <input type="email" class="form-control contact-email-input"
+      <input type="email" class="form-control"
         [(ng-model)]="contact.email">
     </div>
   </div>
   <div class="form-group">
     <label class="col-sm-4 control-label">Telephone number:</label>
     <div class="col-sm-6">
-      <input type="tel" class="form-control contact-tel-input"
+      <input type="tel" class="form-control"
         [(ng-model)]="contact.tel">
     </div>
   </div>
