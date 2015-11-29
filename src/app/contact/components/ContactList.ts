@@ -1,19 +1,14 @@
 import {Component} from 'angular2/angular2';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
-import SimpleButton from './../../shared/components/SimpleButton';
-
 import ContactView from './ContactView';
 import ContactsService from './../ContactsService';
 import Contact from './../Contact';
 
 @Component({
     selector: 'contactList',
-    directives: [ContactView, ROUTER_DIRECTIVES, SimpleButton],
+    directives: [ContactView, ROUTER_DIRECTIVES],
     template: `
-<p class="text-center">
-  <simpleButton [router-link]="['/AddContact']" label="Add Contact">
-</p>
 <ul class="media-list row contacts-container">
   <li class="media col-md-6 col-lg-4" *ng-for="#contact of contacts">
     <contactView [contact]="contact">

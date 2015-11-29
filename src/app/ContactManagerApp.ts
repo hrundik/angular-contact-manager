@@ -11,12 +11,14 @@ import Contact from './contact/Contact';
 import ContactList from './contact/components/ContactList';
 import ContactsService from './contact/ContactsService';
 
+import SimpleButton from './shared/components/SimpleButton';
+
 import {Routes, APP_ROUTES} from "./routeConfig"
 
 @RouteConfig(APP_ROUTES)
 @Component({
     selector: 'contactManagerApp',
-    directives: [ContactList, ROUTER_DIRECTIVES],
+    directives: [ContactList, SimpleButton, ROUTER_DIRECTIVES],
     providers: [
       ROUTER_PROVIDERS,
       provide(LocationStrategy, {useClass: HashLocationStrategy})
@@ -25,6 +27,7 @@ import {Routes, APP_ROUTES} from "./routeConfig"
 <header class="cm-header">
 	<div class="container">
 	<h1>Contact Manager <small>(simple Angular 2 example app)</small></h1>
+  <simpleButton class="add-button" [router-link]="['/AddContact']" label="Add Contact">
 	</div>
 </header>
 <div class="container">
@@ -36,6 +39,16 @@ import {Routes, APP_ROUTES} from "./routeConfig"
 </div>
     `,
     styles: [`
+.add-button {
+  position:absolute;
+  left: 15px;
+  top: 15px;
+}
+.add-button button {
+  background-color: #CCC;
+  border-color: transparent;
+}
+
 .cm-header {
   position: relative;
   padding: 15px 15px;
