@@ -56,7 +56,7 @@ export default class ContactEditor {
     if (!id) {
       this.contact = new Contact();
     } else {
-      contactsService.getContact(id)
+      contactsService.get(id)
         .then((contact) => {
           this.contact = contact.clone();
         });
@@ -66,9 +66,9 @@ export default class ContactEditor {
   onSubmit() {
     let result:Promise<any>;
     if (this.isNew) {
-      result = this.contactsService.addContact(this.contact);
+      result = this.contactsService.add(this.contact);
     } else {
-      result = this.contactsService.saveContact(this.contact);
+      result = this.contactsService.save(this.contact);
     }
 
     result.then(() => {

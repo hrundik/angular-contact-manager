@@ -45,6 +45,6 @@ export default class ContactView {
   constructor(private contactsService:ContactsService) {}
 
   deleteContact (contact:Contact) {
-    this.contactsService.deleteContact(contact);
+    this.contactsService.delete(contact);
   }
 }

@@ -6,7 +6,7 @@ interface Id {
 }
 
 export default class CRUDService<T extends Id> {
-  private items: T[] = [];
+  protected items: T[] = [];
   private ID_COUNTER = 0;
 
   public getAll() {

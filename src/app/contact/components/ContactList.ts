@@ -25,7 +25,7 @@ import Contact from './../Contact';
 export default class ContactList {
   contacts:Contact[];
   constructor(contactsService:ContactsService) {
-    contactsService.getContacts()
+    contactsService.getAll()
       .then((result) => {
         this.contacts = result;
       });
