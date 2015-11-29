@@ -85,4 +85,25 @@ describe('ContactsService', () => {
         done();
       });
   });
+
+  it("should delete known contact", (done) => {
+    service.addContact(newContact)
+      .then(() => service.deleteContact(newContact))
+      .catch(done.fail)
+      .then(() => service.getContact(newContact.id))
+      .then(done.fail)
+      .catch((err) => {
+        expect(err).toBe(NOT_FOUND);
+        done();
+      });
+  });
+
+  it("should report error when trying to delete unknown contact", (done) => {
+    service.deleteContact(newContact)
+      .then(done.fail)
+      .catch((err) => {
+        expect(err).toBe(NOT_FOUND);
+        done();
+      })
+  });
 });
