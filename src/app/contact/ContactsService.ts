@@ -6,7 +6,7 @@ export const NOT_NEW = "NOT_NEW";
 
 export default class ContactsService {
   private contacts: Contact[] = MOCK_CONTACTS.map(Contact.fromObject);
-  private ID_COUNTER = this.contacts.length;
+  private ID_COUNTER = this.contacts.length + 1;
 
   public getContacts() {
     // return Promise to be ready for future async
@@ -24,7 +24,7 @@ export default class ContactsService {
 
   public addContact(contact:Contact) {
     if (contact.id) {
-      return Promise.reject("NOT_NEW");
+      return Promise.reject(NOT_NEW);
     }
 
     contact.id = this.ID_COUNTER++;
