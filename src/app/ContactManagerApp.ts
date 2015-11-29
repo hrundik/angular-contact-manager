@@ -24,8 +24,7 @@ import {Routes, APP_ROUTES} from "./routeConfig"
     template: `
 <header class="cm-header">
 	<div class="container">
-	<h1>Contact Manager</h1>
-	<p>Simple Angular 2 example application</p>
+	<h1>Contact Manager <small>(simple Angular 2 example app)</small></h1>
 	</div>
 </header>
 <div class="container">
@@ -39,7 +38,7 @@ import {Routes, APP_ROUTES} from "./routeConfig"
     styles: [`
 .cm-header {
   position: relative;
-  padding: 30px 15px;
+  padding: 15px 15px;
   font-size: 20px;
   color: #cdbfe3;
   text-align: center;
@@ -56,10 +55,17 @@ import {Routes, APP_ROUTES} from "./routeConfig"
   color: #fff;
 }
 
-.cm-header p {
-  margin-bottom: 0;
-  font-weight: 300;
-  line-height: 1.4;
+.cm-header h1 small {
+  position: absolute;
+  padding-left: 10px;
+  font-size: 50%;
+  color: #CCC;
+}
+
+@media (max-width: 540px) {
+  .cm-header h1 small {
+    display: none;
+  }
 }
     `]
 })
