@@ -11,7 +11,6 @@ import Contact from './../Contact';
     selector: 'contactList',
     directives: [ContactView, ROUTER_DIRECTIVES, SimpleButton],
     template: `
-<h2 class="page-header text-center">List of contacts</h2>
 <p class="text-center">
   <simpleButton [router-link]="['/AddContact']" label="Add Contact">
 </p>
