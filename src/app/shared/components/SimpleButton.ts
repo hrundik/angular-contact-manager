@@ -3,11 +3,14 @@ import {Component, Input} from 'angular2/angular2';
 @Component({
     selector: 'simpleButton',
     template: `
-<button type="{{type}}" class="btn btn-outline btn-lg {{class}}">{{label}}</button>
+<button type="{{type}}" class="btn {{outline ? 'btn-outline' : ''}} btn-lg {{class}}">{{label}}</button>
     `,
     styles: [`
-.btn-outline {
+button {
   color: #563d7c;
+}
+
+.btn-outline {
   background-color: transparent;
   border-color: #563d7c;
 }
@@ -23,6 +26,7 @@ import {Component, Input} from 'angular2/angular2';
 })
 export default class SimpleButton {
   @Input() type = "button";
+  @Input() outline = true;
   @Input() label;
   @Input() class;
 }

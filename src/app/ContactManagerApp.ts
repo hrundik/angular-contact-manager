@@ -27,7 +27,10 @@ import {Routes, APP_ROUTES} from "./routeConfig"
 <header class="cm-header">
 	<div class="container">
 	<h1>Contact Manager <small>(simple Angular 2 example app)</small></h1>
-  <simpleButton class="add-button" [router-link]="['/AddContact']" label="Add Contact">
+  <simpleButton class="add-button"
+    [router-link]="['/AddContact']"
+    [outline]="false"
+    label="Add Contact">
 	</div>
 </header>
 <div class="container">
@@ -43,10 +46,6 @@ import {Routes, APP_ROUTES} from "./routeConfig"
   position:absolute;
   left: 15px;
   top: 15px;
-}
-.add-button button {
-  background-color: #CCC;
-  border-color: transparent;
 }
 
 .cm-header {
