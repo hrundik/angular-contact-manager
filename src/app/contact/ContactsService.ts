@@ -33,7 +33,7 @@ export default class ContactsService {
     return Promise.resolve();
   }
 
-  public saveContact(changedContact:Contact) {
+  public saveContact(changedContact:Contact):Promise<Contact> {
     let contact = this.contacts.find((contact) => {
       if (contact.id == changedContact.id) {
         Object.assign(contact, changedContact);
@@ -41,6 +41,9 @@ export default class ContactsService {
       }
       return false;
     });
+    if (!contact) {
+      return <Promise<any>> Promise.reject(NOT_FOUND);
+    }
     return Promise.resolve(contact);
   }
 
