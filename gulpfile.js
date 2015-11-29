@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var rename = require('gulp-rename');
 var del = require('del');
 var ts = require('gulp-typescript');
-var sourcemaps = require('gulp-sourcemaps');
 var Builder = require('systemjs-builder');
 
 var SYSTEMJS_CONFIG = {
@@ -29,11 +28,9 @@ gulp.task('clean', function () {
 gulp.task('build-ts', function () {
 	var tsProject = ts.createProject('src/tsconfig.json');
 	var tsResult = tsProject.src()
-		.pipe(sourcemaps.init())
 		.pipe(ts(tsProject));
 		
 	return tsResult.js
-		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest(TARGET_DIR));
 });
 
@@ -41,7 +38,7 @@ gulp.task('build-bundle', ['build-ts'], function (cb) {
 	var builder = new Builder('build');
 	builder.config(SYSTEMJS_CONFIG);
 	builder
-		.bundle('app/app', TARGET_DIR + '/bundle.js', { minify: true, sourceMaps: true})
+		.bundle('app/app', TARGET_DIR + '/bundle.js', { minify: true })
 		.then(function() {
 		  console.log('Build complete');
 		  cb();
