@@ -8,8 +8,11 @@ import ContactsService from '../ContactsService';
     selector: 'contactView',
     directives: [ROUTER_DIRECTIVES],
     template: `
-<div class="thumbnail">
-  <img class="media-object" src="img/faces/{{contact.avatar}}">
+<div class="contactView">
+<div class="thumbnailWrapper">
+  <div class="thumbnail">
+    <img class="media-object" src="img/faces/{{contact.avatar}}">
+  </div>
 </div>
 <div class="media-heading">
   <h3>
@@ -30,12 +33,29 @@ import ContactsService from '../ContactsService';
     <dd>{{contact.email}}</dd>
   </dl>
 </div>
-<hr>
+</div>
     `,
     styles: [`
 .media-body.contact-details {
   display: block;
   width: auto;
+}
+.contactView {
+  height: 200px;
+  border: 1px solid #573E7D;
+  padding: 10px;
+  border-radius: 10px;
+}
+.thumbnailWrapper {
+  height: 100%;
+  float: left;
+  margin-right: 25px;
+  line-height: 180px
+}
+.thumbnail {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0px;
 }
     `]
 })
