@@ -27,6 +27,7 @@
     "gulp": "^3.9.0",
     "gulp-rename": "^1.2.2",
     "gulp-typescript": "^2.9.2",
+    "jasmine-core": "2.3.4",
     "live-server": "^0.8.2",
     "systemjs-builder": "^0.14.11",
     "typescript": "^1.6.2"
